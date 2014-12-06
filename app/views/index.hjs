@@ -10,17 +10,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="http://repo.zebkit.org/latest/zebra.min.js"></script>
     <script src="/javascripts/zebralayout.js"></script>
-    <script src="/javascripts/chat-bar.js"></script>
+    <script src = "/javascripts/chat-bar.js"></script>
   </head>
   <body>
     <h1>{{ title }}</h1>
     <p>Welcome to The {{ title }}</p>
 
-    <div class = 'chat-div'>
-      <div class='chat'></div>
-      <input type='text' id='nameInput' placeholder='Name'>
-      <input type='text' id='messageInput' placeholder='Message'>
-    </div>
+    {{{ chat }}}
+
+
 
     <!--
     <div class="btn-group" role="group">
