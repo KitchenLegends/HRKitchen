@@ -8,12 +8,13 @@ zebra.ready(function(){
     var root    = zCanvas.root; // save reference to root UI component
     root.setBorder(new zebra.ui.Border("lightblue", 3 , 20));
 
-    var floor = new zebra.ui.Panel(); // create panel
-    floor.setBounds(300,20, 950, 560); // shape panel
-    floor.setBackground("beige");    // set yellow background
+    var floor = new zebra.ui.Panel(); // creates kitchen floor
+    floor.setBounds(300,20, 950, 560);
+    floor.setBackground("beige");    // set beige background
     floor.setBorder(new zebra.ui.Border("black", 3 , 20));
     root.add(floor);
 
+    // function to create Table (with seats)
     var makeTable = function(x,y){
 
           var table = new zebra.ui.Panel();
@@ -33,6 +34,7 @@ zebra.ready(function(){
 
     };
 
+    // creates a seat
     var makeSeat = function(x,y){
 
           var seat = new zebra.ui.Panel();
@@ -46,6 +48,7 @@ zebra.ready(function(){
 
     };
 
+    // creates 4 tables in kitchen
     makeTable(250, 100);
     makeTable(500, 100);
     makeTable(250, 300);
