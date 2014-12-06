@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Julie Knowles
+  - __Scrum Master__: Pat Lauer
+  - __Development Team Members__: Julie Knowles, Pat Lauer, Rory Campbell
 
 ## Table of Contents
 
