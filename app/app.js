@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// adding process.env.PORT as the port to listen on when running in an Azure website
+var port = process.env.PORT || '3000';
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -56,7 +59,8 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.listen('3000');
+// changed from '3000' as the port to the variable port for Azure
+app.listen(port);
 
 
 module.exports = app;
