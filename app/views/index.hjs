@@ -9,6 +9,7 @@
     <script src="http://repo.zebkit.org/latest/zebra.min.js"></script>
     <script src="/javascripts/zebraFiles/zebraMain.js"></script>
     <script src="/javascripts/zebraFiles/zebraModules/roomBasicElements.js"></script>
+    <script src="/javascripts/zebraFiles/logic/tableLogic.js"></script>
   </head>
   <body>
     <h1>{{ title }}</h1>

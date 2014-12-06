@@ -10,46 +10,51 @@ var makeFloor = function(target){
 }
 
 
-var makeTable = function(x,y){
+var makeTable = function(tableName, x,y){
 
-      var table = new zebra.ui.Panel();
+  var table = new zebra.ui.Panel('Table');
 
-      table.setSize(200, 100);
-      table.setBackground("grey")
-      table.setBorder(new zebra.ui.Border("white", 3 , 20));
-      table.setLocation(x , y);
+  table.setSize(200, 100);
+  table.setBackground("grey")
+  table.setBorder(new zebra.ui.Border("white", 3 , 20));
+  table.setLocation(x , y);
 
-      floor.add(table);
+  floor.add(table);
 
-      makeSeat(x + 30, y-30);
-      makeSeat(x + 130, y-30);
-      makeSeat(x + 30, y+100);
-      makeSeat(x + 130, y+100);
+  makeSeat(1, tableName, x + 30, y-30);
+  makeSeat(2, tableName, x + 130, y-30);
+  makeSeat(3, tableName, x + 30, y+100);
+  makeSeat(4, tableName, x + 130, y+100);
 
 
 };
 
 // creates a seat
-var makeSeat = function(x,y){
+var makeSeat = function(seatNum, tablename, x,y){
 
-      var seat = new zebra.ui.Panel();
+  var seat = new zebra.ui.Button();
 
-      seat.setSize(30, 30);
-      seat.setBackground("white")
-      seat.setBorder(new zebra.ui.Border("blue", 3 , 20));
-      seat.setLocation(x , y);
+  seat.setSize(30, 30);
+  seat.setBackground("white");
+  seat.setLocation(x , y);
 
-      floor.add(seat);
+  seat.mouseReleased = function(e){
+
+
+
+  }
+
+  floor.add(seat);
 
 };
 
 // creates 4 tables in kitchen
 var createTables = function(target){
   makeFloor(target)
-  makeTable(250, 100);
-  makeTable(500, 100);
-  makeTable(250, 300);
-  makeTable(500, 300);
+  makeTable('table-1', 250, 100);
+  makeTable('table-2',500, 100);
+  makeTable('table-3',250, 300);
+  makeTable('table-4',500, 300);
 }
 
 

@@ -3,8 +3,6 @@ zebra.ready(function(){
 
   eval(zebra.Import("ui", "layout"));
 
-
-
   // build Zebra canvas component that adds new
   // Canvas DOM element into page with the given size
   var zCanvas = new zebra.ui.zCanvas(1300,600);
@@ -13,6 +11,4 @@ zebra.ready(function(){
 
   createTables(root);
 
-
 });
-
