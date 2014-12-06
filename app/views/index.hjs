@@ -7,7 +7,8 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="http://repo.zebkit.org/latest/zebra.min.js"></script>
-    <script src="/javascripts/zebralayout.js"></script>
+    <script src="/javascripts/zebraFiles/zebraMain.js"></script>
+    <script src="/javascripts/zebraFiles/zebraModules/roomBasicElements.js"></script>
   </head>
   <body>
     <h1>{{ title }}</h1>
