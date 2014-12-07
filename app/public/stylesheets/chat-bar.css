@@ -1,0 +1,18 @@
+#nameInput {
+  font-weight: bold;
+}
+
+.chat {
+  padding-top:2px;
+}
+
+.chat-div {
+  position: absolute;
+  font-size: 0.7em;
+  padding:2px;
+  width:300px;
+  height:600px;
+  border:solid 1px black;
+  overflow-y:scroll;
+  float:left;
+}
