@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-  var fb = new Firebase('https://kitchen-cooks.firebaseio.com/');
+  var fb = new Firebase('https://kitchen-cooks.firebaseio.com/chats');
 
   //collects input from user, sends it to firebase server
   $('#messageInput').keypress(function (e) {
@@ -8,8 +8,8 @@ $( document ).ready(function() {
       var name = $('#nameInput').val();
       var text = $('#messageInput').val();
       fb.push({name: name, text: text});
-      $('.chat').val('');
-      console.log("success")
+      $('#nameInput').val('');
+      $('#messageInput').val('');
     }
   });
 

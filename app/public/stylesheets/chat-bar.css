@@ -1,5 +1,14 @@
-.chat {
-  font-weight:bold;
-  font-size:1.5em;
+#nameInput {
+  font-weight: bold;
+}
+
+.chat-div {
+  position: absolute;
+  font-size: 0.7em;
+  padding:2px;
+  width:300px;
+  height:600px;
   border:solid 1px black;
+  overflow-y:scroll;
+  float:left;
 }
