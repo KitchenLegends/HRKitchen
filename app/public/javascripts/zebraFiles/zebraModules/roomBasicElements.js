@@ -21,16 +21,16 @@ var makeTable = function(tableName, x,y){
 
   floor.add(table);
 
-  makeSeat(1, tableName, x + 30, y-30);
-  makeSeat(2, tableName, x + 130, y-30);
-  makeSeat(3, tableName, x + 30, y+100);
-  makeSeat(4, tableName, x + 130, y+100);
+  makeSeat('seat1', tableName, x + 30, y-30);
+  makeSeat('seat2', tableName, x + 130, y-30);
+  makeSeat('seat3', tableName, x + 30, y+100);
+  makeSeat('seat4', tableName, x + 130, y+100);
 
 
 };
 
 // creates a seat
-var makeSeat = function(seatNum, tablename, x,y){
+var makeSeat = function(seatName, tableName, x,y){
 
   var seat = new zebra.ui.Button();
 
@@ -40,9 +40,11 @@ var makeSeat = function(seatNum, tablename, x,y){
 
   seat.mouseReleased = function(e){
 
+    seatClick({table : tableName, seat: seatName});
 
+  };
 
-  }
+  seat.
 
   floor.add(seat);
 
@@ -50,11 +52,11 @@ var makeSeat = function(seatNum, tablename, x,y){
 
 // creates 4 tables in kitchen
 var createTables = function(target){
-  makeFloor(target)
-  makeTable('table-1', 250, 100);
-  makeTable('table-2',500, 100);
-  makeTable('table-3',250, 300);
-  makeTable('table-4',500, 300);
+  makeFloor(target);
+  makeTable('table1', 250, 100);
+  makeTable('table2', 500, 100);
+  makeTable('table3', 250, 300);
+  makeTable('table4', 500, 300);
 }
 
 
