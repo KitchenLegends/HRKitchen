@@ -21,11 +21,8 @@ $( document ).ready(function() {
 
   //jquery function to append dom elements to page
   function displayChatMessage(name, text) {
-    $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('.chat'));
+    $('<div/>').text(text).prepend($('<strong/>').text(name+': ')).appendTo($('.chat'));
     $('.chat')[0].scrollTop = $('.chat')[0].scrollHeight;
   };
-
-  // var chatHTML = "<div class = 'chat-div'><div class='chat'></div><input type='text' id='nameInput' placeholder='Name'><input type='text' id='messageInput' placeholder='Message'></div>";
-  // module.exports = chatHTML;
 
 });

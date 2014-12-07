@@ -2,6 +2,10 @@
   font-weight: bold;
 }
 
+.chat {
+  padding-top:2px;
+}
+
 .chat-div {
   position: absolute;
   font-size: 0.7em;
