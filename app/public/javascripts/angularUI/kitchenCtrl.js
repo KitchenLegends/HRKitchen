@@ -71,7 +71,7 @@ appControllers.controller('kitchenCtrl', ['$scope',
     $scope.seats = {};
     $scope.hangouts = {};
 
-    fb.on("value", function(snapshot) {
+    fbSeating.on("value", function(snapshot) {
 
       $scope.$apply(function(){
         $scope.seats = snapshot.val();
@@ -111,7 +111,7 @@ appControllers.controller('kitchenCtrl', ['$scope',
           setOrGetHangoutUrl(seat, $scope)
 
 
-          fb.set($scope.seats)
+          fbSeating.set($scope.seats)
 
         }else{
 
@@ -131,7 +131,7 @@ appControllers.controller('kitchenCtrl', ['$scope',
           $scope.currentSeat = "standing";
           $scope.currentURL = "No current hangout url";
 
-          fb.set($scope.seats);
+          fbSeating.set($scope.seats);
 
         }
 
