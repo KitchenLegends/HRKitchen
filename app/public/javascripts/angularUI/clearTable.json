@@ -1,0 +1,22 @@
+{
+  "table1" : {
+    "users":0,
+    "message": 0,
+    "url":0
+  },
+  "table2" : {
+    "users":0,
+    "message": 0,
+    "url":0
+  },
+  "table3" : {
+    "users":0,
+    "message": 0,
+    "url":0
+  },
+  "table4" : {
+    "users":0,
+    "message": 0,
+    "url":0
+  }
+}

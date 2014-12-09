@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+.spacer {
+    margin: 30px; /* define margin as you see fit */
+}
+/*
+.bootbox {
+position: fixed;
+bottom: 25%;
+right: 0;
+margin-bottom: 0;
+font-size: 1.2em;
+padding: 1em 1.3em;
+z-index: 2000;
+}*/
