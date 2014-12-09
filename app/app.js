@@ -67,7 +67,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-app.user(flash());
+app.use(flash());
 
 app.get('/logout', function(req, res) {
   req.logout();
