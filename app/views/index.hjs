@@ -34,7 +34,7 @@
     <h1>{{ title }}</h1>
     <p>Welcome to The {{ title }}</p>
 
-    {{{ chat }}}
+  <!--  {{{ chat }}} -->
 
     <!--
     <div class="btn-group" role="group">
@@ -44,10 +44,8 @@
       <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>seat 3</button>
       <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>seat 4</button>
     </div> -->
-=======
     <!-- {{{ chat }}} -->
 
     <div ng-view></div>
->>>>>>> master
   </body>
 </html>
