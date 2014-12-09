@@ -14,23 +14,16 @@
   </head>
   <body>
     <nav>
-      {{ #user }}
-          <p>Hello, {{ user.displayName }} | 
-            <a href="/">Kitchen</a> | 
-            <a href="/account">Account</a> | 
-            <a href="/logout">Log Out</a></p>
-        {{ /user }}
-        {{ ^user }}
-          <p><a href="/">Kitchen</a> | <a href="/login">Log In</a></p>
-        {{ /user }}
+      <p>Hello, I have no idea what your name is.... | 
+        <a href="/">Kitchen</a> | 
+        <a href="/login">Login with Github</a> | 
+        <a href="/logout">Log Out</a></p>
     </nav>
 
     <h1>{{ title }}</h1>
     <p>Welcome to The {{ title }}</p>
 
     {{{ chat }}}
-
-
 
     <!--
     <div class="btn-group" role="group">
@@ -40,8 +33,5 @@
       <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>seat 3</button>
       <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>seat 4</button>
     </div> -->
-
-
-    </script>
   </body>
 </html>

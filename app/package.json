@@ -13,6 +13,7 @@
     "express": "~4.9.0",
     "express-method-override": "0.0.3",
     "express-session": "^1.9.3",
+    "firebase": "^2.0.6",
     "hjs": "~0.0.6",
     "method-override": "^2.3.0",
     "morgan": "~1.3.0",
