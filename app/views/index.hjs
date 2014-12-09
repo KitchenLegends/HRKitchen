@@ -14,9 +14,9 @@
   </head>
   <body>
     <nav>
-      <p>Hello, I have no idea what your name is.... | 
+      <p>Hello, {{ user.displayName }} | 
         <a href="/">Kitchen</a> | 
-        <a href="/login">Login with Github</a> | 
+        <a href="/auth/github">Login with Github</a> | 
         <a href="/logout">Log Out</a></p>
     </nav>
 

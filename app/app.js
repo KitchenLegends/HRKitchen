@@ -2,12 +2,17 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var Firebase = require('firebase');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// need to npm install --save passport and passport-github
+var passport = require('passport');
+var GitHubStrategy = require('passport-github').Strategy;
+var flash = require('connect-flash');
 
-// adding process.env.PORT as the port to listen on when running in an Azure website
-var port = process.env.PORT || '3000';
+// get a github api client_id and client_secret
+// can find them here: https://github.com/organizations/Kitchencooks/settings/applications/150833
+var GITHUB_CLIENT_ID = "9fc53664e3f5cda07061";
+var GITHUB_CLIENT_SECRET = "a6549bd7252dc4405d50f908a7c170f53ddaf0fa";
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -31,6 +36,30 @@ app.use('/users', users);
 app.get('/', function(req, res){
   res.render('index', { user: req.user });
 });
+ 
+app.use(passport.initialize());
+
+// GitHub config, this callback should match callback in api
+passport.use(new GitHubStrategy({
+    clientID: GITHUB_CLIENT_ID,
+    clientSecret: GITHUB_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/github/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    process.nextTick(function () {
+      return done(null, profile);
+    });
+  }
+));
+
+// serialize and deserialize the user
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
 
 var session = require('express-session');
 app.use(session({
@@ -38,44 +67,31 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.user(flash());
 
 app.get('/logout', function(req, res) {
-  req.session.destroy(function() {
+  req.logout();
+  res.redirect('/');
+});
+
+app.get('/login', function(req, res){
+  res.render('login', { user: req.user });
+});
+
+app.get('/auth/github',
+  passport.authenticate('github'),
+  function(req, res){
+    // The request will be redirected to GitHub for authentication,
+    // so this function will not be called.
+  });
+
+app.get('/auth/github/callback', 
+  passport.authenticate('github', { failureRedirect: '/' }),
+  function(req, res) {
+    console.log('req.user: ', req.user);
+    //res.render('index', { user: req.user });
     res.redirect('/');
   });
-});
-
-app.get('/login', function(req, res) {
-  var ref = new Firebase('https://hrr-kitchen.firebaseio.com');
-
-  ref.authWithOAuthPopup('github', function(err, authData) {
-    console.log('in authWithOAuthPopup');
-    if (err) {
-      console.log(err.code);
-      if (err.code === "TRANSPORT_UNAVAILABLE") {
-        ref.authWithOAuthRedirect('github', function(err, authData) {
-          console.log('in authWithOAuthRedirect');
-          if (err) {
-            console.log(err.code);
-          } else if (authData) {
-      console.log('User ID: ' + authData.uid + 
-                  ', Provider: ' + authData.provider +
-                  ', GitHub ID: ' + authData.github.id +
-                  ', GitHub Name: ' + authData.github.displayName +
-                  ', GitHub Username: ' + authData.github.username);
-          }
-        });
-      }
-    } else if (authData) {
-      // user authenticated with GitHub
-      console.log('User ID: ' + authData.uid + 
-                  ', Provider: ' + authData.provider +
-                  ', GitHub ID: ' + authData.github.id +
-                  ', GitHub Name: ' + authData.github.displayName +
-                  ', GitHub Username: ' + authData.github.username);
-    }
-  });
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -108,7 +124,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-// changed from '3000' as the port to the variable port for Azure
-app.listen(port);
+app.listen('3000');
 
 module.exports = app;
