@@ -88,6 +88,11 @@ var handleClick = function(seat, $event, $scope) {
 
       $scope.currentSeat = 'Standing'
 
+    }else{
+
+      bootbox.alert("You're already sat down");
+      $(".modal-backdrop").css("z-index", "0");
+
     }
 
   }
