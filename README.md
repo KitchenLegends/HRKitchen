@@ -40,6 +40,6 @@ From within the root directory:
 View the project roadmap/issues [here](https://waffle.io/kitchencooks/kitchencooks "KitchenCooks Roadmap/Issues")
 
 
-## Contributing
+### Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
