@@ -15,6 +15,7 @@
     <script src="/libz/bootbox.js"></script>
     <script src="/javascripts/angularUI/main.js"></script>
     <script src="/javascripts/angularUI/kitchenCtrl.js"></script>
+    <script src="/javascripts/angularUI/tableHelpers.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <script src = "/javascripts/chat-bar.js"></script>
 
