@@ -19,6 +19,8 @@ var startOrJoinVideo = function(seat, $scope){
       $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
     });
 
+    //call function to start video and store link to it here
+
     fbHangouts.set($scope.hangouts);
 
   }else{
@@ -31,6 +33,8 @@ var startOrJoinVideo = function(seat, $scope){
       $scope.currentURL = table.url;
       $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
     });
+
+    //call function to join video here
 
     fbHangouts.set($scope.hangouts);
 
