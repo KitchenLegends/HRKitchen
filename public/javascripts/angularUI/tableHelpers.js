@@ -1,6 +1,5 @@
 'use strict'
 
-
 var startOrJoinVideo = function(seat, $scope){
 
   var table = $scope.hangouts[seat.tableNumber];
@@ -20,10 +19,15 @@ var startOrJoinVideo = function(seat, $scope){
     });
 
     //call function to start video and store link to it here
+    console.log('about to open video')
+    window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
     fbHangouts.set($scope.hangouts);
 
   }else{
+    console.log('about to open video')
+
+    window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
     bootbox.alert('Joining a video chat!');
     $(".modal-backdrop").css("z-index", "0");
@@ -35,6 +39,7 @@ var startOrJoinVideo = function(seat, $scope){
     });
 
     //call function to join video here
+
 
     fbHangouts.set($scope.hangouts);
 

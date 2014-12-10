@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var http    = require("http");              // http server core module
+var io      = require("socket.io");         // web socket external module
+var easyrtc = require("easyrtc");           // EasyRTC external module
 var methodOverride = require('method-override');
 // need to npm install --save passport and passport-github
 var passport = require('passport');
@@ -83,7 +86,7 @@ app.get('/auth/github',
     // so this function will not be called.
   });
 
-app.get('/auth/github/callback', 
+app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
     //console.log('req.session.passport.user: ', req.session.passport.user);
@@ -121,6 +124,14 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.listen('3000');
+// changed from '3000' as the port to the variable port for Azure
+
+var webServer = app.listen('3000');
+
+// Start Socket.io so it attaches itself to Express server
+var socketServer = io.listen(webServer, {"log level":1});
+
+// Start EasyRTC server
+var rtc = easyrtc.listen(app, socketServer);
 
 module.exports = app;
