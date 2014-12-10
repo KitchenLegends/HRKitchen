@@ -14,8 +14,7 @@
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
+    1. [Roadmap](#roadmap)
 1. [Contributing](#contributing)
 
 ## Usage
@@ -40,6 +39,6 @@ From within the root directory:
 View the project roadmap/issues [here](https://waffle.io/kitchencooks/kitchencooks "KitchenCooks Roadmap/Issues")
 
 
-### Contributing
+## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
