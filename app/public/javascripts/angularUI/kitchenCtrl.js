@@ -10,7 +10,7 @@ var appControllers = angular.module('appControllers', []);
 //this controller handles the kitchen view and designates which seats are available
 appControllers.controller('kitchenCtrl', ['$scope',
   function ($scope) {
-    var satDown = false;
+    $scope.satDown = false;
     $scope.currentSeat = "standing";
     $scope.currentURL = "No current hangout url";
 
@@ -35,55 +35,11 @@ appControllers.controller('kitchenCtrl', ['$scope',
     });
 
 
-    $scope.myData = {};
-
-
-    $scope.myData.doClick = function(seat, $event) {
-
-      $event.preventDefault();
-
-      console.log('SEAT', seat);
-
-      if (!satDown){
-
-        if (!seat.taken){
-
-          $scope.currentSeat = seat;
-
-          seat.name = userName;
-          seat.taken = true;
-          satDown = true;
-
-          setOrGetHangoutUrl(seat, $scope)
-
-
-          fbSeating.set($scope.seats)
-
-        }else{
-
-          bootbox.alert("Seat already occupied");
-          $(".modal-backdrop").css("z-index", "0");
-
-        }
-
-      }else{
-
-        if (seat.name === userName){
-
-          seat.name = 'empty';
-          seat.taken = false;
-          satDown = false;
-
-          $scope.currentSeat = "standing";
-          $scope.currentURL = "No current hangout url";
-
-          fbSeating.set($scope.seats);
-
-        }
-
-      }
-
+    $scope.doClick = function(seat, $event) {
+      handleClick(seat, $event, $scope);
     };
+
+    $scope.clearRoom = clearRoom;
 
   }]
 

@@ -1,111 +1,110 @@
 {
   "table1" : {
     "seat1" : {
-      "name" : "empty",
-      "seatNumber" : "table1",
-      "tableNumber" : "seat1",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat1",
+      "tableNumber" : "table1",
+      "taken" : true
     },
     "seat2" : {
-      "name" : "empty",
-      "seatNumber" : "table1",
-      "tableNumber" : "seat2",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat2",
+      "tableNumber" : "table1",
+      "taken" : true
     },
     "seat3" : {
-      "name" : "empty",
-      "seatNumber" : "table1",
-      "tableNumber" : "seat3",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat3",
+      "tableNumber" : "table1",
+      "taken" : true
     },
     "seat4" : {
-      "name" : "empty",
-      "seatNumber" : "table1",
-      "tableNumber" : "seat4",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat4",
+      "tableNumber" : "table1",
+      "taken" : true
     },
     "tableNumber" : "table1"
   },
   "table2" : {
     "seat1" : {
-      "name" : "empty",
-      "seatNumber" : "table2",
-      "tableNumber" : "seat1",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat1",
+      "tableNumber" : "table2",
+      "taken" : true
     },
     "seat2" : {
       "name" : "empty",
-      "seatNumber" : "table2",
-      "tableNumber" : "seat2",
+      "seatNumber" : "seat2",
+      "tableNumber" : "table2",
       "taken" : false
     },
     "seat3" : {
-      "name" : "empty",
-      "seatNumber" : "table2",
-      "tableNumber" : "seat3",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat3",
+      "tableNumber" : "table2",
+      "taken" : true
     },
     "seat4" : {
-      "name" : "empty",
-      "seatNumber" : "table2",
-      "tableNumber" : "seat4",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat4",
+      "tableNumber" : "table2",
+      "taken" : true
     },
     "tableNumber" : "table2"
   },
   "table3" : {
     "seat1" : {
-      "name" : "empty",
-      "seatNumber" : "table3",
-      "tableNumber" : "seat1",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat1",
+      "tableNumber" : "table3",
+      "taken" : true
     },
     "seat2" : {
       "name" : "empty",
-      "seatNumber" : "table3",
-      "tableNumber" : "seat2",
+      "seatNumber" : "seat2",
+      "tableNumber" : "table3",
       "taken" : false
     },
     "seat3" : {
-      "name" : "empty",
-      "seatNumber" : "table3",
-      "tableNumber" : "seat3",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat3",
+      "tableNumber" : "table3",
+      "taken" : true
     },
     "seat4" : {
-      "name" : "empty",
-      "seatNumber" : "table3",
-      "tableNumber" : "seat4",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat4",
+      "tableNumber" : "table3",
+      "taken" : true
     },
-    "tableNumber" : "table3"
+    "tableNumber" : "table2"
   },
   "table4" : {
     "seat1" : {
-      "name" : "empty",
-      "seatNumber" : "table4",
-      "tableNumber" : "seat1",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat1",
+      "tableNumber" : "table4",
+      "taken" : true
     },
     "seat2" : {
       "name" : "empty",
-      "seatNumber" : "table4",
-      "tableNumber" : "seat2",
+      "seatNumber" : "seat2",
+      "tableNumber" : "table4",
       "taken" : false
     },
     "seat3" : {
-      "name" : "empty",
-      "seatNumber" : "table4",
-      "tableNumber" : "seat3",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat3",
+      "tableNumber" : "table4",
+      "taken" : true
     },
     "seat4" : {
-      "name" : "empty",
-      "seatNumber" : "table4",
-      "tableNumber" : "seat4",
-      "taken" : false
+      "name" : "rory",
+      "seatNumber" : "seat4",
+      "tableNumber" : "table4",
+      "taken" : true
     },
-    "tableNumber" : "table4"
-  },
-  "updateCount" : 1
+    "tableNumber" : "table2"
+  }
 }

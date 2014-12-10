@@ -1,50 +1,35 @@
-//the function either tells the user to enter a url or gives a url. Called when they click on a seat
-var setOrGetHangoutUrl = function(seat, $scope){
+'use strict'
 
-  var table = $scope.hangouts[seat.seatNumber];
 
-  console.log('Table', table)
+var startOrJoinVideo = function(seat, $scope){
 
-  if (!table.users){
+  var table = $scope.hangouts[seat.tableNumber];
+
+
+  if (table.users === 0){
+
     table.users++;
-    $scope.hangouts[seat.seatNumber] = table;
-    table.message = 'Waiting for first person seated to enter their Hangout url. \n Url bar at bottom will update automatically when they add it.';
-    //$scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
 
-    bootbox.prompt("Enter Google Hangout URL", function(result) {
-      if (result === null) {
-
-        console.log('empty URL input');
-
-      } else {
-
-        table.url = result;
-        table.message = 'Copy and paste this URL to join the chat!';
-
-        //$('.urlbar').text(result || 'no hangout URL entered yet');
-        $scope.$apply(function(){
-          console.log('SEAT', seat, table);
-          $scope.currentURL = result;
-          $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
-
-        });
-
-        fbHangouts.set($scope.hangouts);
-
-      }
-    });
-    $(".modal-backdrop").css("z-index", "0");
-
-  }else{
-
-    bootbox.alert(table.message + '<br>' + table.url);
+    bootbox.alert("Creating a video group chat!");
     $(".modal-backdrop").css("z-index", "0");
 
     $scope.$apply(function(){
       console.log('SEAT', seat, table);
       $scope.currentURL = table.url;
       $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
+    });
 
+    fbHangouts.set($scope.hangouts);
+
+  }else{
+
+    bootbox.alert('Joining a video chat!');
+    $(".modal-backdrop").css("z-index", "0");
+
+    $scope.$apply(function(){
+      console.log('SEAT', seat, table);
+      $scope.currentURL = table.url;
+      $scope.currentSeat = seat.tableNumber + ' - ' + seat.seatNumber;
     });
 
     fbHangouts.set($scope.hangouts);
@@ -52,3 +37,199 @@ var setOrGetHangoutUrl = function(seat, $scope){
   }
 
 };
+
+var handleClick = function(seat, $event, $scope) {
+
+  $event.preventDefault();
+
+  console.log('SEAT', seat);
+
+  if (!$scope.satDown){
+
+    if (!seat.taken){
+
+      $scope.currentSeat = seat.seatNumber;
+
+      seat.name = userName;
+      seat.taken = true;
+      $scope.satDown = true;
+
+      fbSeating.set($scope.seats);
+
+      startOrJoinVideo(seat, $scope)
+
+    }else{
+
+      bootbox.alert("Seat already occupied");
+      $(".modal-backdrop").css("z-index", "0");
+
+    }
+
+  }else{
+
+    if (seat.name === userName){
+
+      seat.name = 'empty';
+      seat.taken = false;
+      $scope.satDown = false;
+
+      $scope.currentSeat = "standing";
+      $scope.currentURL = "No current hangout url";
+
+      fbSeating.set($scope.seats);
+
+      var table = $scope.hangouts[seat.tableNumber];
+
+      table.users--;
+
+      $scope.currentSeat = 'Standing'
+
+    }
+
+  }
+
+};
+
+var clearRoom = function(){
+  console.log('clearing')
+
+  var hangouts = {
+    "table1" : {
+      "users": 0,
+      "message": 0,
+      "url": 0
+    },
+    "table2" : {
+      "users": 0,
+      "message": 0,
+      "url": 0
+    },
+    "table3" : {
+      "users": 0,
+      "message": 0,
+      "url": 0
+    },
+    "table4" : {
+      "users": 0,
+      "message": 0,
+      "url": 0
+    }
+  }
+
+  var seating = {
+    "table1" : {
+      "seat1" : {
+        "name" : "empty",
+        "seatNumber" : "seat1",
+        "tableNumber" : "table1",
+        "taken" : false
+      },
+      "seat2" : {
+        "name" : "empty",
+        "seatNumber" : "seat2",
+        "tableNumber" : "table1",
+        "taken" : false
+      },
+      "seat3" : {
+        "name" : "empty",
+        "seatNumber" : "seat3",
+        "tableNumber" : "table1",
+        "taken" : false
+      },
+      "seat4" : {
+        "name" : "empty",
+        "seatNumber" : "seat4",
+        "tableNumber" : "table1",
+        "taken" : false
+      },
+      "tableNumber" : "table1"
+    },
+    "table2" : {
+      "seat1" : {
+        "name" : "empty",
+        "seatNumber" : "seat1",
+        "tableNumber" : "table2",
+        "taken" : false
+      },
+      "seat2" : {
+        "name" : "empty",
+        "seatNumber" : "seat2",
+        "tableNumber" : "table2",
+        "taken" : false
+      },
+      "seat3" : {
+        "name" : "empty",
+        "seatNumber" : "seat3",
+        "tableNumber" : "table2",
+        "taken" : false
+      },
+      "seat4" : {
+        "name" : "empty",
+        "seatNumber" : "seat4",
+        "tableNumber" : "table2",
+        "taken" : false
+      },
+      "tableNumber" : "table2"
+    },
+    "table3" : {
+      "seat1" : {
+        "name" : "empty",
+        "seatNumber" : "seat1",
+        "tableNumber" : "table3",
+        "taken" : false
+      },
+      "seat2" : {
+        "name" : "empty",
+        "seatNumber" : "seat2",
+        "tableNumber" : "table3",
+        "taken" : false
+      },
+      "seat3" : {
+        "name" : "empty",
+        "seatNumber" : "seat3",
+        "tableNumber" : "table3",
+        "taken" : false
+      },
+      "seat4" : {
+        "name" : "empty",
+        "seatNumber" : "seat4",
+        "tableNumber" : "table3",
+        "taken" : false
+      },
+      "tableNumber" : "table2"
+    },
+    "table4" : {
+      "seat1" : {
+        "name" : "empty",
+        "seatNumber" : "seat1",
+        "tableNumber" : "table4",
+        "taken" : false
+      },
+      "seat2" : {
+        "name" : "empty",
+        "seatNumber" : "seat2",
+        "tableNumber" : "table4",
+        "taken" : false
+      },
+      "seat3" : {
+        "name" : "empty",
+        "seatNumber" : "seat3",
+        "tableNumber" : "table4",
+        "taken" : false
+      },
+      "seat4" : {
+        "name" : "empty",
+        "seatNumber" : "seat4",
+        "tableNumber" : "table4",
+        "taken" : false
+      },
+      "tableNumber" : "table2"
+    }
+  }
+
+  fbHangouts.set(hangouts);
+
+  fbSeating.set(seating);
+
+
+}
