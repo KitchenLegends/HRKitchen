@@ -60,9 +60,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log('before done, user: ', user);
   done(null, user);
-  console.log('after done, user: ', user);
 });
 
 app.get('/', function(req, res){
