@@ -4,6 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var http    = require("http");              // http server core module
+var io      = require("socket.io");         // web socket external module
+var easyrtc = require("easyrtc");           // EasyRTC external module
+
 
 // adding process.env.PORT as the port to listen on when running in an Azure website
 var port = process.env.PORT || '3000';
@@ -60,7 +64,14 @@ app.use(function(err, req, res, next) {
 });
 
 // changed from '3000' as the port to the variable port for Azure
-app.listen(port);
+var webServer = app.listen(port);
+
+
+// Start Socket.io so it attaches itself to Express server
+var socketServer = io.listen(webServer, {"log level":1});
+
+// Start EasyRTC server
+var rtc = easyrtc.listen(app, socketServer);
 
 
 module.exports = app;

@@ -1,6 +1,5 @@
 'use strict'
 
-
 var startOrJoinVideo = function(seat, $scope){
 
   var table = $scope.hangouts[seat.tableNumber];
@@ -20,6 +19,7 @@ var startOrJoinVideo = function(seat, $scope){
     });
 
     //call function to start video and store link to it here
+    window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
     fbHangouts.set($scope.hangouts);
 
@@ -35,6 +35,8 @@ var startOrJoinVideo = function(seat, $scope){
     });
 
     //call function to join video here
+    window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
+
 
     fbHangouts.set($scope.hangouts);
 
