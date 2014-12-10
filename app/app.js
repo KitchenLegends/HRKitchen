@@ -4,10 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 // need to npm install --save passport and passport-github
 var passport = require('passport');
 var GitHubStrategy = require('passport-github').Strategy;
-var flash = require('connect-flash');
+var session = require('express-session');
 
 // get a github api client_id and client_secret
 // can find them here: https://github.com/organizations/Kitchencooks/settings/applications/150833
@@ -15,7 +16,6 @@ var GITHUB_CLIENT_ID = "9fc53664e3f5cda07061";
 var GITHUB_CLIENT_SECRET = "a6549bd7252dc4405d50f908a7c170f53ddaf0fa";
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
@@ -29,15 +29,17 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride());
+app.use(cookieParser());
+app.use(session({
+  secret: 'secret HRR Kitchen k00ks App',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', routes);
-app.use('/users', users);
-
-app.get('/', function(req, res){
-  res.render('index', { user: req.user });
-});
- 
-app.use(passport.initialize());
 
 // GitHub config, this callback should match callback in api
 passport.use(new GitHubStrategy({
@@ -61,13 +63,9 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-var session = require('express-session');
-app.use(session({
-  secret: 'secret HRR Kitchen k00ks App',
-  resave: false,
-  saveUninitialized: true
-}));
-app.use(flash());
+app.get('/', function(req, res){
+  res.render('index', { user: req.user });
+});
 
 app.get('/logout', function(req, res) {
   req.logout();
@@ -88,8 +86,7 @@ app.get('/auth/github',
 app.get('/auth/github/callback', 
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
-    console.log('req.user: ', req.user);
-    //res.render('index', { user: req.user });
+    console.log('req.session.passport.user: ', req.session.passport.user);
     res.redirect('/');
   });
 
