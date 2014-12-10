@@ -31,9 +31,6 @@
 
 From within the root directory:
 
-```npm install
-```
-
 ### Roadmap
 
 View the project roadmap/issues [here](https://waffle.io/kitchencooks/kitchencooks "KitchenCooks Roadmap/Issues")
