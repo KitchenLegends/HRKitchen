@@ -45,11 +45,11 @@ app.use('/', routes);
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "http://kitchenkooks.azurewebsites.net/auth/github/callback"
+    callbackURL: "http://localhost:3000/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
-      return done(null, profile);
+      return done(null, { token: accessToken, profile: profile });
     });
   }
 ));
@@ -59,8 +59,10 @@ passport.serializeUser(function(user, done) {
   done(null, user);
 });
 
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
+passport.deserializeUser(function(user, done) {
+  console.log('before done, user: ', user);
+  done(null, user);
+  console.log('after done, user: ', user);
 });
 
 app.get('/', function(req, res){

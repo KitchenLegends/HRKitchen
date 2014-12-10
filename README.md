@@ -1,6 +1,6 @@
 # Project Name
 
-> Pithy project description
+> HRR Meet Me in the Kitchen App
 
 ## Team
 
@@ -20,15 +20,11 @@
 
 ## Usage
 
-> Some usage instructions
+> Some usage instructions *STILL NEED THESE*
 
 ## Requirements
 
 - Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
 
 ## Development
 
@@ -36,15 +32,12 @@
 
 From within the root directory:
 
-```sh
-sudo npm install -g bower
-npm install
-bower install
+```npm install
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap/issues [here](https://waffle.io/kitchencooks/kitchencooks "KitchenCooks Roadmap/Issues")
 
 
 ## Contributing
