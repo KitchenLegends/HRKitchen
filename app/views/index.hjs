@@ -20,16 +20,21 @@
 
   </head>
   <body>
-
-
-  </head>
-  <body>
     <nav>
       <p>Hello, {{ user.displayName }} | 
         <a href="/">Kitchen</a> | 
-        <a href="/auth/github">Login with Github</a> | 
-        <a href="/logout">Log Out</a></p>
+        <a href="/logout">Log Out</a>
+      </p>
+      <p>Please log in to start! | 
+        <a href="/">Kitchen</a> | 
+        <a href="/auth/github">Login with Github</a> 
+      </p>
     </nav>
+
+<p>ID: {{ user.id }}<br>
+Username: {{ user.username }}<br>
+Name: {{ user.displayName }}<br>
+Profile Pic:  {{ user._json.avatar_url }}</p>
 
     <h1>{{ title }}</h1>
     <p>Welcome to The {{ title }}</p>
