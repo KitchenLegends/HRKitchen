@@ -1,32 +1,16 @@
-<script src="https://peer-server.herokuapp.com/peer.min.js" ></script>
-
-<script>
-
-  window.location.hash = (window.location.hash || parseInt(Math.random()*1e4,10).toString(16));
-
-
-  var session = Peer.initSession().addMedia('myvideo').connect(window.location.hash).on('media', function(e){
-    document.querySelector('div.demo').appendChild(e.video);
-  });
-
-  var form = document.querySelector('form.msg');
-    session.on('message', function(event){
-      form.textarea.value = event.data+"\n"+form.textarea.value;
-    });
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      form.textarea.value = "me:" + this.input.value+"\n"+form.textarea.value;
-      session.send('message', {data:this.input.value});
-      this.input.value = '';
-    });
-
-  var link = document.getElementById('chat-room-link');
-    link.innerHTML = window.location.href;
-    link.href = window.location.href;
-
-
-
-</script>
-
-
-
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/easyrtc/easyrtc.css" />
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/easyrtc/easyrtc.js"></script>
+        <script type="text/javascript" src="js/mylogic.js"></script>
+    </head>
+     <body onload="my_init()">
+        <div id="otherClients"> </div>
+        <video  style="float:left" id="self" width="300" height="200"></video>
+        <div style="position:relative;float:left;width:300px">
+            <video id="caller" width="300" height="200"></video>
+        </div>
+    </body>
+</html>
