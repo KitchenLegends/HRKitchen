@@ -1,6 +1,6 @@
 # Project Name
 
-> Pithy project description
+> HRR Meet Me in the Kitchen App
 
 ## Team
 
@@ -14,21 +14,19 @@
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
+    1. [Roadmap](#roadmap)
 1. [Contributing](#contributing)
 
 ## Usage
 
-> Some usage instructions
+1. Login using Github credentials
+2. Pick a seat that doesn't already have someone sitting in it and sit down
+3. Chat bar on side will relay chats to everyone in the kitchen, not just at your table
+4. Seats show thumbail of the HRR student 
 
 ## Requirements
 
 - Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
 
 ## Development
 
@@ -36,15 +34,11 @@
 
 From within the root directory:
 
-```sh
-sudo npm install -g bower
-npm install
-bower install
-```
+    npm install
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap/issues [here](https://waffle.io/kitchencooks/kitchencooks "KitchenCooks Roadmap/Issues")
 
 
 ## Contributing

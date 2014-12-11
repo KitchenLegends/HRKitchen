@@ -7,11 +7,10 @@ var bodyParser = require('body-parser');
 var http    = require("http");              // http server core module
 var io      = require("socket.io");         // web socket external module
 var easyrtc = require("easyrtc");           // EasyRTC external module
-var methodOverride = require('method-override');
-// need to npm install --save passport and passport-github
-var passport = require('passport');
-var GitHubStrategy = require('passport-github').Strategy;
-var session = require('express-session');
+var methodOverride = require('method-override'); // method-override core module
+var passport = require('passport'); // passport core module for authentication
+var GitHubStrategy = require('passport-github').Strategy; // passport-github module for authentication
+var session = require('express-session'); // express-session for session saving
 
 // get a github api client_id and client_secret
 // can find them here: https://github.com/organizations/Kitchencooks/settings/applications/150833
@@ -48,7 +47,7 @@ app.use('/', routes);
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/github/callback"
+    callbackURL: "http://hrr-kitchen.azurewebsites.net/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
@@ -62,8 +61,8 @@ passport.serializeUser(function(user, done) {
   done(null, user);
 });
 
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
+passport.deserializeUser(function(user, done) {
+  done(null, user);
 });
 
 app.get('/', function(req, res){
@@ -73,10 +72,6 @@ app.get('/', function(req, res){
 app.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
-});
-
-app.get('/login', function(req, res){
-  res.render('login', { user: req.user });
 });
 
 app.get('/auth/github',
@@ -100,32 +95,6 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
-
-// changed from '3000' as the port to the variable port for Azure
 
 var webServer = app.listen('3000');
 
