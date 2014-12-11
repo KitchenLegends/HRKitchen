@@ -1,3 +1,6 @@
+//This is a vestigal file that stores the JSON data for an empty set of table hangout URLs.
+// As the group chats are now implemented using the appear.in app, this is not currently used.
+
 {
   "table1" : {
     "users": 0,

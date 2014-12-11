@@ -8,7 +8,6 @@ var appControllers = angular.module('appControllers', ['ngCookies']);
 
 
 //this controller handles the kitchen view and designates which seats are available
-//It uses functions stored in tableHelpers.js
 appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
 
@@ -27,7 +26,6 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
     $scope.seats = {};
     $scope.hangouts = {};
 
-    //Updates the local seating data when the firebase updates
     fbSeating.on("value", function(snapshot) {
 
       $scope.$apply(function(){
@@ -37,8 +35,6 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
     });
 
-
-    //Updates the hangout urls- currently not used as the app now uses appear.in instead of google hangouts
     fbHangouts.on("value", function(snapshot) {
 
       $scope.$apply(function(){

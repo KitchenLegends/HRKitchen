@@ -1,3 +1,7 @@
+//This is a vestigal file that stores the JSON data for an empty set of kitchen seats.
+//It is no longer used but may be useful if the developer wishes to upload it to the Firebase database.
+//The data is currently cleared using an object in tableHelpers.
+
 {
   "table1" : {
     "seat1" : {
