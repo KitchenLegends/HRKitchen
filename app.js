@@ -7,11 +7,10 @@ var bodyParser = require('body-parser');
 var http    = require("http");              // http server core module
 var io      = require("socket.io");         // web socket external module
 var easyrtc = require("easyrtc");           // EasyRTC external module
-var methodOverride = require('method-override');
-// need to npm install --save passport and passport-github
-var passport = require('passport');
-var GitHubStrategy = require('passport-github').Strategy;
-var session = require('express-session');
+var methodOverride = require('method-override'); // method-override core module
+var passport = require('passport'); // passport core module for authentication
+var GitHubStrategy = require('passport-github').Strategy; // passport-github module for authentication
+var session = require('express-session'); // express-session for session saving
 
 // get a github api client_id and client_secret
 // can find them here: https://github.com/organizations/Kitchencooks/settings/applications/150833
@@ -75,10 +74,6 @@ app.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
-app.get('/login', function(req, res){
-  res.render('login', { user: req.user });
-});
-
 app.get('/auth/github',
   passport.authenticate('github'),
   function(req, res){
@@ -89,7 +84,6 @@ app.get('/auth/github',
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
-    //console.log('req.session.passport.user: ', req.session.passport.user);
     res.redirect('/');
   });
 
@@ -99,32 +93,6 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
-
-// changed from '3000' as the port to the variable port for Azure
 
 var webServer = app.listen('3000');
 
