@@ -19,7 +19,10 @@
 
 ## Usage
 
-> Some usage instructions *STILL NEED THESE*
+1. Login using Github credentials
+2. Pick a seat that doesn't already have someone sitting in it and sit down
+3. Chat bar on side will relay chats to everyone in the kitchen, not just at your table
+4. Seats show thumbail of the HRR student 
 
 ## Requirements
 
