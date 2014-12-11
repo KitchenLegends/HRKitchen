@@ -1,4 +1,6 @@
-
+// This file controls the thumb videos
+// It currently only shows users who are sat at the same table
+// It should be factored so that anyone can view the thumbs (possibly by clicking the table)
 
 var activeBox = -1;  // nothing selected
 var aspectRatio = 4/3;  // standard definition video aspect ratio
@@ -15,7 +17,7 @@ function getIdOfBox(boxNum) {
 
 
 
-
+//join the thumb videos and view others
 function callEverybodyElse(roomName, otherPeople) {
 
     console.log('otherPeople', otherPeople);
@@ -70,7 +72,7 @@ function joinThumbVideos(table) {
     easyrtc.enableAudio(false);
 
     easyrtc.setRoomOccupantListener(callEverybodyElse);
-    easyrtc.easyApp("easyrtc.multiparty", "box0", ["box1", "box2", "box3"], loginSuccess);
+    easyrtc.easyApp("easyrtc.multiparty", "box0", ["box1", "box2", "box3"], loginSuccess); //sets up multiparty video links
     easyrtc.setDisconnectListener( function() {
     easyrtc.showError("LOST-CONNECTION", "Lost connection to signaling server");
     });
@@ -91,6 +93,8 @@ function joinThumbVideos(table) {
     });
 }
 
+//  Currently unfinished functions (mostly a copy of joinThumbVideos)
+//  When complete it should show video thumbs without adding the user to the thumbs
 function viewThumbVideos (table) {
 
     console.log('table clicked')
