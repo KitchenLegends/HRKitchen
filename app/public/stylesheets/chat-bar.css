@@ -7,12 +7,17 @@
 }
 
 .chat-div {
-  position: absolute;
+ /* position: absolute;*/
+  /*margin-left:750px;*/
   font-size: 0.7em;
   padding:2px;
   width:300px;
   height:600px;
   border:solid 1px black;
   overflow-y:scroll;
-  float:left;
+  float:right;
+}
+
+body {
+  border: solid 1px black;
 }
