@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Project Name
 
 > HRR Meet Me in the Kitchen App
@@ -44,3 +45,9 @@ View the project roadmap/issues [here](https://waffle.io/kitchencooks/kitchencoo
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+=======
+HRKitchen
+=========
+
+Kitchen app for Hack Reactor
+>>>>>>> b4a758696a1311524ebdd5e85407edd0a1601c74
