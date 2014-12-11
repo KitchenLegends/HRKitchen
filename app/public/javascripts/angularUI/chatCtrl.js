@@ -1,6 +1,14 @@
-$( document ).ready(function() {
 
-  var fbChats = new Firebase('https://hrr-kitchen.firebaseio.com/chats');
+var fbChats = new Firebase('https://hrr-kitchen.firebaseio.com/chats')
+
+
+var appControllers = angular.module('appControllers');
+
+//this controller handles the chat view
+appControllers.controller('chatCtrl', ['$scope', '$cookies',
+  function ($scope, $cookies) {
+
+    // console.log()
 
   //collects input from user, sends it to firebase server
   $('#messageInput').keypress(function (e) {
@@ -25,4 +33,8 @@ $( document ).ready(function() {
     $('.chat')[0].scrollTop = $('.chat')[0].scrollHeight;
   };
 
-});
+
+  }]
+
+);
+
