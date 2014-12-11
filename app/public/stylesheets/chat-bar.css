@@ -7,17 +7,20 @@
 }
 
 .chat-div {
- /* position: absolute;*/
+  /*position: relative;*/
+
   /*margin-left:750px;*/
+  /*margin-top:700px;*/
   font-size: 0.7em;
   padding:2px;
-  width:300px;
+  width:800px;
   height:600px;
   border:solid 1px black;
   overflow-y:scroll;
-  float:right;
+  display: block;
+  /*float:left;*/
 }
 
-body {
+/*body {
   border: solid 1px black;
-}
+}*/

@@ -1,5 +1,5 @@
 'use strict';
-// var userName = 'rory';
+window.userName = 'Loading';
 
 var fbHangouts = new Firebase('https://hrr-kitchen.firebaseio.com/hangouts')
 // if so then provide the user with the hangout url
@@ -14,9 +14,9 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
     var user  = {}
     if ($cookies.user) {
 
-      userName = $cookies.user
+      window.userName = $cookies.user
     } else {
-      userName = "Anonymous"
+      window.userName = "Anonymous"
     }
 
     $scope.satDown = false;
@@ -43,6 +43,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
     });
 
+    $scope.viewThumbs = viewThumbVideos;
 
     $scope.doClick = function(seat, $event) {
       handleClick(seat, $event, $scope);

@@ -4,12 +4,13 @@ var startOrJoinVideo = function(seat, $scope){
 
   var table = $scope.hangouts[seat.tableNumber];
 
+  joinThumbVideos(seat.tableNumber);
 
   if (table.users === 0){
 
     table.users++;
 
-    bootbox.alert("Creating a video group chat!");
+    bootbox.alert("Creating a video group chat! Allow the kitchen app to access your camera.");
     $(".modal-backdrop").css("z-index", "0");
 
     $scope.$apply(function(){
@@ -29,7 +30,7 @@ var startOrJoinVideo = function(seat, $scope){
 
     window.open('https://appear.in/hrr-kitchen-'+ seat.tableNumber);
 
-    bootbox.alert('Joining a video chat!');
+    bootbox.alert('Joining a video chat! Allow the kitchen app to access your camera.');
     $(".modal-backdrop").css("z-index", "0");
 
     $scope.$apply(function(){
