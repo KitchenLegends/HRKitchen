@@ -83,10 +83,11 @@ app.get('/auth/github',
     // so this function will not be called.
   });
 
-app.get('/auth/github/callback', 
+app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   function(req, res) {
-    console.log('req.session.passport.user: ', req.session.passport.user);
+    console.log('req.session.passport.user: ', req.user);
+     res.cookie('user', req.user.displayName);
     res.redirect('/');
   });
 
