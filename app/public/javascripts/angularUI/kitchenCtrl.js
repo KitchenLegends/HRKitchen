@@ -1,5 +1,5 @@
 'use strict';
-var userName = 'rory';
+// var userName = 'rory';
 
 var fbHangouts = new Firebase('https://hrr-kitchen.firebaseio.com/hangouts')
 // if so then provide the user with the hangout url
@@ -10,6 +10,15 @@ var appControllers = angular.module('appControllers', ['ngCookies']);
 //this controller handles the kitchen view and designates which seats are available
 appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
+
+    var user  = {}
+    if ($cookies.user) {
+
+      userName = $cookies.user
+    } else {
+      userName = "Anonymous"
+    }
+
     $scope.satDown = false;
     $scope.currentSeat = "standing";
     $scope.currentURL = "No current hangout url";

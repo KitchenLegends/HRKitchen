@@ -8,12 +8,12 @@ var appControllers = angular.module('appControllers');
 appControllers.controller('chatCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
 
-  var user  = {}
+  var user  = {};
   if ($cookies.user) {
 
-    user.name = $cookies.user
+    user.name = $cookies.user;
   } else {
-    user.name = "Anonymous"
+    user.name = "Anonymous";
   }
 
   //collects input from user, sends it to firebase server
