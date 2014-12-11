@@ -5,9 +5,8 @@
 
 ## Team
 
-  - __Product Owner__: Julie Knowles
-  - __Scrum Master__: Pat Lauer
-  - __Development Team Members__: Julie Knowles, Pat Lauer, Rory Campbell
+  - __Scrum Master__: Spencer Stebbins
+  - __Development Team Members__: Spencer Stebbins, Brian Schermerhorn , Rohan Agrawai
 
 ## Table of Contents
 
