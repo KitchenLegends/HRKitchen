@@ -37,7 +37,7 @@
 Username: {{ user.username }}<br>
 Name: {{ user.displayName }}<br>
 <!-- Profile Pic: <img src="{{ user._json.avatar_url }}"></p></p> -->
-    <div  ng-include="'partials/chat-bar.html'"></div>
+    <div class='chat-div' ng-include="'partials/chat-bar.html'"></div>
     <h1>{{ title }}</h1>
     <p>Welcome to The {{ title }}</p>
 

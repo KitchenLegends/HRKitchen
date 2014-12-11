@@ -8,15 +8,20 @@ var appControllers = angular.module('appControllers');
 appControllers.controller('chatCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
 
-    // console.log()
+  var user  = {}
+  if ($cookies.user) {
+
+    user.name = $cookies.user
+  } else {
+    user.name = "Anonymous"
+  }
 
   //collects input from user, sends it to firebase server
   $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
-      var name = $('#nameInput').val();
       var text = $('#messageInput').val();
-      fbChats.push({name: name, text: text});
-      $('#nameInput').val('');
+      console.log(user.name)
+      fbChats.push({name: user.name, text: text});
       $('#messageInput').val('');
     }
   });
