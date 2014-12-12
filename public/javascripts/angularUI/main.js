@@ -23,6 +23,10 @@ kitchenApp.config(['$routeProvider',
         templateUrl: '/partials/kitchenView.html',
         controller: 'kitchenCtrl'
       }).
+      when('/admin', {
+        templateUrl:'/partials/admin.html',
+        controller:'adminCtrl'
+      }).
       otherwise({
         redirectTo: '/index'
       });
