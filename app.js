@@ -1,16 +1,17 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var http    = require("http");              // http server core module
-var io      = require("socket.io");         // web socket external module
-var easyrtc = require("easyrtc");           // EasyRTC external module
+var express        = require('express');
+var path           = require('path');
+var favicon        = require('serve-favicon');
+var logger         = require('morgan');
+var cookieParser   = require('cookie-parser');
+var bodyParser     = require('body-parser');
+var http           = require("http");              // http server core module
+var io             = require("socket.io");       // web socket external module
+var easyrtc        = require("easyrtc");           // EasyRTC external module
 var methodOverride = require('method-override'); // method-override core module
-var passport = require('passport'); // passport core module for authentication
+var passport       = require('passport'); // passport core module for authentication
 var GitHubStrategy = require('passport-github').Strategy; // passport-github module for authentication
-var session = require('express-session'); // express-session for session saving
+var session        = require('express-session'); // express-session for session saving
+var clog           = require('simpleclog');
 
 // get a github api client_id and client_secret
 // can find them here: https://github.com/organizations/Kitchencooks/settings/applications/150833

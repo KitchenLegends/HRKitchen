@@ -19,9 +19,10 @@
     "morgan": "~1.3.0",
     "passport": "^0.2.1",
     "passport-github": "^0.1.5",
+    "passport-local": "^1.0.0",
     "rtcmulticonnection": "^2.2.3",
     "serve-favicon": "~2.1.3",
-    "socket.io": "^1.2.1",
-    "passport-local": "^1.0.0"
+    "simpleclog": "^0.3.0",
+    "socket.io": "^1.2.1"
   }
 }
