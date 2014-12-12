@@ -1,6 +1,6 @@
 'use strict';
 
-var fbSeating = new Firebase('https://hrr-kitchen.firebaseio.com/seating');
+var fbSeating = new Firebase('https://hrkitchen.firebaseio.com/seating');
 
 /* App Module */
 
