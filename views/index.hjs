@@ -41,7 +41,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Kitchen App</a>
+        <a class="navbar-brand" id="title" href="#">{{ title }}</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -70,8 +70,7 @@
 Username: {{ user.username }}<br>
 Name: {{ user.displayName }}<br> -->
 <!-- Profile Pic: <img src="{{ user._json.avatar_url }}"></p></p> -->
-    <h1>{{ title }}</h1>
-    <p>Welcome to The {{ title }}</p>
+    <div class='video-div' ng-include="'partials/videoFeeds.html'"></div>
 
 
     <div ng-view></div>

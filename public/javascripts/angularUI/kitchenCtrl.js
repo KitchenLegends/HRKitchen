@@ -37,7 +37,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
     });
 
 
-
+    $scope.videos = {};
     $scope.viewThumbs = viewThumbVideos;
 
     $scope.doClick = function(seat, $event) {

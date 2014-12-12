@@ -14,8 +14,8 @@ var session = require('express-session'); // express-session for session saving
 
 // get a github api client_id and client_secret
 // can find them here: https://github.com/organizations/Kitchencooks/settings/applications/150833
-var GITHUB_CLIENT_ID = "9fc53664e3f5cda07061";
-var GITHUB_CLIENT_SECRET = "a6549bd7252dc4405d50f908a7c170f53ddaf0fa";
+var GITHUB_CLIENT_ID = "fdd96d423382dff47e68";
+var GITHUB_CLIENT_SECRET = "0c580f077bc3a6f65586e8d92048730c910c546d";
 
 var routes = require('./routes/index');
 
@@ -47,7 +47,7 @@ app.use('/', routes);
 passport.use(new GitHubStrategy({
     clientID: GITHUB_CLIENT_ID,
     clientSecret: GITHUB_CLIENT_SECRET,
-    callbackURL: "http://hrr-kitchen.azurewebsites.net/auth/github/callback"
+    callbackURL: "http://localhost:3000/auth/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     process.nextTick(function () {

@@ -10,6 +10,10 @@ a {
 .spacer {
     margin: 20px; /* define margin as you see fit */
 }
+#title{
+  font-size: 24px;
+  color: black;
+}
 
 /*
 .bootbox {
