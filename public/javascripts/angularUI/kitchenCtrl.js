@@ -5,24 +5,27 @@ window.userName = 'Loading';
 var fbHangouts = new Firebase('https://hrr-kitchen.firebaseio.com/hangouts')
 
 
-var appControllers = angular.module('appControllers', ['ngCookies']);
+var appControllers = angular.module('appControllers', ['ngCookies', 'ngDragDrop']);
 
 
 //this controller handles the kitchen view and designates which seats are available
 //It uses functions stored in tableHelpers.js
 appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
+    $scope.list1 = {title: 'TOPIC'};
+    $scope.list2 = {};
+     $scope.list3 = {title: 'TOPIC2'};
 
+    $scope.logout = function(){
 
-    $scope.logout = function(callback){
-
-      logout(function(){
-        fbSeating.on("value", function(snapshot) {
-          $scope.$apply(function(){
-            $scope.seats = snapshot.val();
-          });
-        });
-      });
+      logout();
+      //   function(){
+      //   fbSeating.on("value", function(snapshot) {
+      //     $scope.$apply(function(){
+      //       $scope.seats = snapshot.val();
+      //     });
+      //   });
+      // });
 
     }
 
@@ -45,7 +48,6 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
     $scope.seats = {};
     $scope.hangouts = {};
-
     //Updates the local seating data when the firebase updates
     fbSeating.on("value", function(snapshot) {
 

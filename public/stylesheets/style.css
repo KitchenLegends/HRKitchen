@@ -55,6 +55,20 @@ a {
 .label{
   padding-left: 0.8em !important;
 }
+
+#topic-box{
+  float: right;
+  width: 300px;
+  height: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+.btn-success{
+  position: absolute;
+  width: 100%;
+}
+
 /*
 .bootbox {
 position: fixed;

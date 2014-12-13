@@ -55,7 +55,7 @@ var startOrJoinVideo = function(seat, $scope){
   }
 
 };
-var logout = function(){
+var logout = function(seat){
 
       var table = fbSeating.child(seat.tableNumber);
       var userseat = table.child(seat.seatNumber);
