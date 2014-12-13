@@ -19,6 +19,7 @@ var GITHUB_CLIENT_ID = "fdd96d423382dff47e68";
 var GITHUB_CLIENT_SECRET = "0c580f077bc3a6f65586e8d92048730c910c546d";
 
 var routes = require('./routes/index');
+
 var app = express();
 
 // view engine setup
@@ -66,23 +67,16 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/', function(req, res){
-  res.render('index', { user: req.user });
+  res.render('index', { user: req.user});
 });
-
-//delete this. used for helping PAT
-// app.post('/', function(req, res){
-//   clog(req.body);
-//   clog('POSTEDDD');
-//   res.json(req.body);
-
-// });
-
-// app.get('/admin', function(req, res){
-//   res.render('index', { user: req.user });
-// });
 
 app.get('/logout', function(req, res) {
   req.logout();
+  req.session.destroy(function (err) {
+    if (err) { return next(err); }
+    // The response should indicate that the user is no longer authenticated.
+    return res.send({ authenticated: req.isAuthenticated() });
+  });
   res.redirect('/');
 });
 
@@ -98,6 +92,7 @@ app.get('/auth/github/callback',
   function(req, res) {
     console.log('req.session.passport.user: ', req.user);
      res.cookie('user', req.user.displayName);
+     res.cookie('avatar', req.user._json.avatar_url);
     res.redirect('/');
   });
 

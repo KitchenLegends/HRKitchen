@@ -40,14 +40,21 @@ a {
 }
 
 #profile{
-  margin-left: 80%;
-  margin-left: 20px;
+  float: right;
   width: 50px;
   height: 50px;
   border: none;
   border-radius: 30px;
 }
 
+.chair-pics{
+  height: 50px;
+  width: 50px;
+  border-radius: 10px 10px 0px 0px;
+}
+.label{
+  padding-left: 0.8em !important;
+}
 /*
 .bootbox {
 position: fixed;
