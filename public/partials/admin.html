@@ -1,10 +1,20 @@
+<!-- implement a like feature for  -->
+<form>
+  <input type='text' ng-model='formData.topic'>
+  <button type='submit' ng-click='createTopic()'>Add to list</button>
+</form>
+{% list %}
+
 <div ng-repeat="list in lists" class="list">
+<button>use</button><!-- top right, small -->
   <ul ng-repeat="topic in list" class="topic">
-    <button class="removeBtn" ng-click="remove(topic)"></button>
+    <li class='list-item'>{% topic %}
+      <button class="glyphicon glyphicon-minus"></button>
+    </li>
   </ul>
-  <button class="addTopic()"></button>
-  <!-- how to handle addTopic? -->
+  <button class="glyphicon glyphicon-plus"></button>
 </div>
+
 
 
 

@@ -15,12 +15,13 @@ var kitchenApp = angular.module('kitchenApp', [
     $interpolateProvider.endSymbol('%}');
   }
 );
-
+//constructoreque
+//
 kitchenApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/index', {
-        templateUrl: '/partials/kitchenView.html',
+      when('/', {
+        templateUrl: '/partials/kitchenView.html', //is this even loading?
         controller: 'kitchenCtrl'
       }).
       when('/admin', {
@@ -28,7 +29,7 @@ kitchenApp.config(['$routeProvider',
         controller:'adminCtrl'
       }).
       otherwise({
-        redirectTo: '/index'
+        redirectTo: '/'
       });
   }]);
 
