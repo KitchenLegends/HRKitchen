@@ -68,8 +68,8 @@ var handleClick = function(seat, $event, $scope) {
     if (!seat.taken){
 
       $scope.currentSeat = seat.seatNumber;
-
       seat.name = userName;
+      seat.avatar= $scope.user.avatar;
       seat.taken = true;
       $scope.satDown = true;
 
@@ -90,7 +90,8 @@ var handleClick = function(seat, $event, $scope) {
 
     if (seat.name === userName){
 
-      seat.name = 'empty';
+      seat.name = seat.seatNumber;
+      seat.avatar= null;
       seat.taken = false;
       $scope.satDown = false;
 
@@ -149,25 +150,25 @@ var clearRoom = function(){
   var seating = {
     "table1" : {
       "seat1" : {
-        "name" : "empty",
+        "name" : "seat 1",
         "seatNumber" : "seat1",
         "tableNumber" : "table1",
         "taken" : false
       },
       "seat2" : {
-        "name" : "empty",
+        "name" : "seat 2",
         "seatNumber" : "seat2",
         "tableNumber" : "table1",
         "taken" : false
       },
       "seat3" : {
-        "name" : "empty",
+        "name" : "seat 3",
         "seatNumber" : "seat3",
         "tableNumber" : "table1",
         "taken" : false
       },
       "seat4" : {
-        "name" : "empty",
+        "name" : "seat 4",
         "seatNumber" : "seat4",
         "tableNumber" : "table1",
         "taken" : false
@@ -176,25 +177,25 @@ var clearRoom = function(){
     },
     "table2" : {
       "seat1" : {
-        "name" : "empty",
+        "name" : "seat 1",
         "seatNumber" : "seat1",
         "tableNumber" : "table2",
         "taken" : false
       },
       "seat2" : {
-        "name" : "empty",
+        "name" : "seat 2",
         "seatNumber" : "seat2",
         "tableNumber" : "table2",
         "taken" : false
       },
       "seat3" : {
-        "name" : "empty",
+        "name" : "seat 3",
         "seatNumber" : "seat3",
         "tableNumber" : "table2",
         "taken" : false
       },
       "seat4" : {
-        "name" : "empty",
+        "name" : "seat 4",
         "seatNumber" : "seat4",
         "tableNumber" : "table2",
         "taken" : false
@@ -203,25 +204,25 @@ var clearRoom = function(){
     },
     "table3" : {
       "seat1" : {
-        "name" : "empty",
+        "name" : "seat 1",
         "seatNumber" : "seat1",
         "tableNumber" : "table3",
         "taken" : false
       },
       "seat2" : {
-        "name" : "empty",
+        "name" : "seat 2",
         "seatNumber" : "seat2",
         "tableNumber" : "table3",
         "taken" : false
       },
       "seat3" : {
-        "name" : "empty",
+        "name" : "seat 3",
         "seatNumber" : "seat3",
         "tableNumber" : "table3",
         "taken" : false
       },
       "seat4" : {
-        "name" : "empty",
+        "name" : "seat 4",
         "seatNumber" : "seat4",
         "tableNumber" : "table3",
         "taken" : false
@@ -230,25 +231,25 @@ var clearRoom = function(){
     },
     "table4" : {
       "seat1" : {
-        "name" : "empty",
+        "name" : "seat 1",
         "seatNumber" : "seat1",
         "tableNumber" : "table4",
         "taken" : false
       },
       "seat2" : {
-        "name" : "empty",
+        "name" : "seat 2",
         "seatNumber" : "seat2",
         "tableNumber" : "table4",
         "taken" : false
       },
       "seat3" : {
-        "name" : "empty",
+        "name" : "seat 3",
         "seatNumber" : "seat3",
         "tableNumber" : "table4",
         "taken" : false
       },
       "seat4" : {
-        "name" : "empty",
+        "name" : "seat 4",
         "seatNumber" : "seat4",
         "tableNumber" : "table4",
         "taken" : false

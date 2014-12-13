@@ -13,12 +13,14 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
     var user  = {}
     if ($cookies.user) {
-
+      user.name = $cookies.user
+      user.avatar = $cookies.avatar
       window.userName = $cookies.user
+      console.log(user);
     } else {
       window.userName = "Anonymous"
     }
-
+    $scope.user = user;
     $scope.satDown = false;
     $scope.currentSeat = "standing";
     $scope.currentURL = "No current hangout url";
@@ -49,6 +51,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
     $scope.viewThumbs = viewThumbVideos;
 
     $scope.doClick = function(seat, $event) {
+      console.log('DOCLICK', user.avatar);
       handleClick(seat, $event, $scope);
     };
 

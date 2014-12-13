@@ -67,11 +67,16 @@ passport.deserializeUser(function(user, done) {
 });
 
 app.get('/', function(req, res){
-  res.render('index', { user: req.user });
+  res.render('index', { user: req.user});
 });
 
 app.get('/logout', function(req, res) {
   req.logout();
+  req.session.destroy(function (err) {
+    if (err) { return next(err); }
+    // The response should indicate that the user is no longer authenticated.
+    return res.send({ authenticated: req.isAuthenticated() });
+  });
   res.redirect('/');
 });
 
@@ -87,6 +92,7 @@ app.get('/auth/github/callback',
   function(req, res) {
     console.log('req.session.passport.user: ', req.user);
      res.cookie('user', req.user.displayName);
+     res.cookie('avatar', req.user._json.avatar_url);
     res.redirect('/');
   });
 
