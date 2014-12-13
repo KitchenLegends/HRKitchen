@@ -69,6 +69,14 @@ app.get('/', function(req, res){
   res.render('index', { user: req.user });
 });
 
+//delete this. used for helping PAT
+// app.post('/', function(req, res){
+//   clog(req.body);
+//   clog('POSTEDDD');
+//   res.json(req.body);
+
+// });
+
 // app.get('/admin', function(req, res){
 //   res.render('index', { user: req.user });
 // });
