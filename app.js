@@ -72,11 +72,8 @@ app.get('/', function(req, res){
 
 app.get('/logout', function(req, res) {
   req.logout();
-  req.session.destroy(function (err) {
-    if (err) { return next(err); }
-    // The response should indicate that the user is no longer authenticated.
-    return res.send({ authenticated: req.isAuthenticated() });
-  });
+  res.clearCookie('user');
+  res.clearCookie('avatar');
   res.redirect('/');
 });
 

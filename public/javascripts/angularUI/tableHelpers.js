@@ -55,6 +55,36 @@ var startOrJoinVideo = function(seat, $scope){
   }
 
 };
+var logout = function(){
+
+      var table = fbSeating.child(seat.tableNumber);
+      var userseat = table.child(seat.seatNumber);
+      var path = userseat.toString();
+      path.update({
+        avatar: null,
+         name: null,
+         taken: false
+      });
+
+    // console.log('LOGOUT');
+    // $scope.apply(function(){
+    //   seat.name = seat.seatNumber;
+    //   seat.avatar= null;
+    //   seat.taken = false;
+    //   $scope.satDown = false;
+
+    //   $scope.currentSeat = "standing";
+    //   $scope.currentURL = "No current hangout url";
+
+
+    //   var table = $scope.hangouts[seat.tableNumber];
+
+    //   table.users--;
+
+    //   $scope.currentSeat = 'Standing'
+    // });
+}
+
 
 //This functions decides the outcome when a user clicks on a seat
 var handleClick = function(seat, $event, $scope) {
@@ -109,12 +139,17 @@ var handleClick = function(seat, $event, $scope) {
 
     }else{
       //modal alert
-      bootbox.alert("You're already sat down");
-      $(".modal-backdrop").css("z-index", "0");
-
+      if ($scope.user === null) {
+        bootbox.alert("You must log in first");
+        $(".modal-backdrop").css("z-index", "0");
+      } else {
+        bootbox.alert("You're already sat down");
+        $(".modal-backdrop").css("z-index", "0");
+      }
     }
 
   }
+
 
 };
 
@@ -151,25 +186,25 @@ var clearRoom = function(){
     "table1" : {
       "seat1" : {
         "name" : "seat 1",
-        "seatNumber" : "seat1",
+        "seatNumber" : "seat 1",
         "tableNumber" : "table1",
         "taken" : false
       },
       "seat2" : {
         "name" : "seat 2",
-        "seatNumber" : "seat2",
+        "seatNumber" : "seat 2",
         "tableNumber" : "table1",
         "taken" : false
       },
       "seat3" : {
         "name" : "seat 3",
-        "seatNumber" : "seat3",
+        "seatNumber" : "seat 3",
         "tableNumber" : "table1",
         "taken" : false
       },
       "seat4" : {
         "name" : "seat 4",
-        "seatNumber" : "seat4",
+        "seatNumber" : "seat 4",
         "tableNumber" : "table1",
         "taken" : false
       },
@@ -178,25 +213,25 @@ var clearRoom = function(){
     "table2" : {
       "seat1" : {
         "name" : "seat 1",
-        "seatNumber" : "seat1",
+        "seatNumber" : "seat 1",
         "tableNumber" : "table2",
         "taken" : false
       },
       "seat2" : {
         "name" : "seat 2",
-        "seatNumber" : "seat2",
+        "seatNumber" : "seat 2",
         "tableNumber" : "table2",
         "taken" : false
       },
       "seat3" : {
         "name" : "seat 3",
-        "seatNumber" : "seat3",
+        "seatNumber" : "seat 3",
         "tableNumber" : "table2",
         "taken" : false
       },
       "seat4" : {
         "name" : "seat 4",
-        "seatNumber" : "seat4",
+        "seatNumber" : "seat 4",
         "tableNumber" : "table2",
         "taken" : false
       },
@@ -205,25 +240,25 @@ var clearRoom = function(){
     "table3" : {
       "seat1" : {
         "name" : "seat 1",
-        "seatNumber" : "seat1",
+        "seatNumber" : "seat 1",
         "tableNumber" : "table3",
         "taken" : false
       },
       "seat2" : {
         "name" : "seat 2",
-        "seatNumber" : "seat2",
+        "seatNumber" : "seat 2",
         "tableNumber" : "table3",
         "taken" : false
       },
       "seat3" : {
         "name" : "seat 3",
-        "seatNumber" : "seat3",
+        "seatNumber" : "seat 3",
         "tableNumber" : "table3",
         "taken" : false
       },
       "seat4" : {
         "name" : "seat 4",
-        "seatNumber" : "seat4",
+        "seatNumber" : "seat 4",
         "tableNumber" : "table3",
         "taken" : false
       },
@@ -232,25 +267,25 @@ var clearRoom = function(){
     "table4" : {
       "seat1" : {
         "name" : "seat 1",
-        "seatNumber" : "seat1",
+        "seatNumber" : "seat 1",
         "tableNumber" : "table4",
         "taken" : false
       },
       "seat2" : {
         "name" : "seat 2",
-        "seatNumber" : "seat2",
+        "seatNumber" : "seat 2",
         "tableNumber" : "table4",
         "taken" : false
       },
       "seat3" : {
         "name" : "seat 3",
-        "seatNumber" : "seat3",
+        "seatNumber" : "seat 3",
         "tableNumber" : "table4",
         "taken" : false
       },
       "seat4" : {
         "name" : "seat 4",
-        "seatNumber" : "seat4",
+        "seatNumber" : "seat 4",
         "tableNumber" : "table4",
         "taken" : false
       },

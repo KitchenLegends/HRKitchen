@@ -1,7 +1,9 @@
 'use strict';
+
 window.userName = 'Loading';
 
 var fbHangouts = new Firebase('https://hrr-kitchen.firebaseio.com/hangouts')
+
 
 var appControllers = angular.module('appControllers', ['ngCookies']);
 
@@ -11,6 +13,22 @@ var appControllers = angular.module('appControllers', ['ngCookies']);
 appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
 
+
+    $scope.logout = function(callback){
+
+      logout(function(){
+        fbSeating.on("value", function(snapshot) {
+          $scope.$apply(function(){
+            $scope.seats = snapshot.val();
+          });
+        });
+      });
+
+    }
+
+
+
+    // });
     var user  = {}
     if ($cookies.user) {
       user.name = $cookies.user
@@ -18,7 +36,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
       window.userName = $cookies.user
       console.log(user);
     } else {
-      window.userName = "Anonymous"
+      window.userName = null
     }
     $scope.user = user;
     $scope.satDown = false;
@@ -33,7 +51,6 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
       $scope.$apply(function(){
         $scope.seats = snapshot.val();
-
       });
 
     });

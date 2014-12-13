@@ -49,7 +49,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li ><a href="/auth/github">Log In with Github</a></li>
-          <li ng-show="{{user}}"><a href="/logout">Log Out</a></li>
+          <li ng-show="{{user}}"><a ng-click="logout()" href="/logout">Log Out</a></li>
           <li><a href="/admin">Admin</a></li>
           <li><img id="profile" src="{{ user._json.avatar_url }}"></li>
         </ul>
