@@ -8,13 +8,35 @@ a {
 }
 
 .spacer {
-    margin: 20px; /* define margin as you see fit */
+  margin: 20px; /* define margin as you see fit */
 }
 #title{
   font-size: 24px;
   color: black;
 }
-
+.list{
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  width:300px;
+  margin:10px;
+  padding: 10px;
+}
+.topic{
+  border: 2px solid;
+  border-radius: 25px;
+  border-color: #00B7FF;
+  list-style-type: none;
+  box-shadow: 3px 3px 5px #888888;
+  width:250px;
+}
+.newList{
+  width:300px;
+  min-height: 300px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
 /*
 .bootbox {
 position: fixed;

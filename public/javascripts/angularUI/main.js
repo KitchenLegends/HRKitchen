@@ -25,7 +25,7 @@ kitchenApp.config(['$routeProvider',
         controller: 'kitchenCtrl'
       }).
       when('/admin', {
-        templateUrl:'../partials/admin.html',
+        templateUrl:'/partials/admin.html',
         controller:'adminCtrl'
       }).
       otherwise({

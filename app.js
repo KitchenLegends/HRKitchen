@@ -19,7 +19,6 @@ var GITHUB_CLIENT_ID = "fdd96d423382dff47e68";
 var GITHUB_CLIENT_SECRET = "0c580f077bc3a6f65586e8d92048730c910c546d";
 
 var routes = require('./routes/index');
-
 var app = express();
 
 // view engine setup
