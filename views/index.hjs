@@ -50,7 +50,9 @@
         <ul class="nav navbar-nav">
           <li><a href="/auth/github">Log In with Github</a></li>
           <li><a href="/logout">Log Out</a></li>
+
           <li><a ng-href="#/admin">Admin</a></li>
+          <li><img id="profile" src="{{ user._json.avatar_url }}"></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -71,7 +73,7 @@
 <!-- <p>ID: {{ user.id }}<br>
 Username: {{ user.username }}<br>
 Name: {{ user.displayName }}<br> -->
-<!-- Profile Pic: <img src="{{ user._json.avatar_url }}"></p></p> -->
+
     <div class='video-div' ng-include="'partials/videoFeeds.html'"></div>
 
 

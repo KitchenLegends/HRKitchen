@@ -1,7 +1,7 @@
 'use strict';
 window.userName = 'Loading';
 
-
+var fbHangouts = new Firebase('https://hrr-kitchen.firebaseio.com/hangouts')
 
 var appControllers = angular.module('appControllers', ['ngCookies']);
 
@@ -36,8 +36,16 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
     });
 
+  //Updates the hangout urls- currently not used as the app now uses appear.in instead of google hangouts
+    fbHangouts.on("value", function(snapshot) {
 
-    $scope.videos = {};
+      $scope.$apply(function(){
+        $scope.hangouts = snapshot.val();
+      });
+
+    });
+
+
     $scope.viewThumbs = viewThumbVideos;
 
     $scope.doClick = function(seat, $event) {

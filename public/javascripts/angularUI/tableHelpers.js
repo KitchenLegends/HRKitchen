@@ -7,7 +7,7 @@ var startOrJoinVideo = function(seat, $scope){
 
   //This funcitons is in videoConderence/videoFaces.js
   //It will generate a
-  joinThumbVideos(seat.tableNumber);
+  // joinThumbVideos(seat.tableNumber);
 
   if (table.users === 0){
 
@@ -76,7 +76,7 @@ var handleClick = function(seat, $event, $scope) {
       fbSeating.set($scope.seats);
 
       //calls above function
-      startOrJoinVideo(seat, $scope)
+      startOrJoinVideo(seat, $scope);
 
     }else{
 
