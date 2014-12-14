@@ -12,8 +12,6 @@ var appControllers = angular.module('appControllers', ['ngCookies']);
 //It uses functions stored in tableHelpers.js
 appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
-
-
     $scope.logout = function(callback){
 
       logout(function(){
@@ -26,7 +24,7 @@ appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
 
     }
 
-
+    
 
     // });
     var user  = {}
