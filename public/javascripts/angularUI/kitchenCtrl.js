@@ -13,9 +13,9 @@ var appControllers = angular.module('appControllers', ['ngCookies', 'ngDragDrop'
 appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
 
-    $scope.list1 = {title: 'TOPIC'};
+    $scope.list1 = { title: 'TOPIC' };
     $scope.list2 = {};
-    $scope.list3 = {title: 'TOPIC2'};
+    $scope.list3 = { title: 'TOPIC2' };
 
     $scope.logout = function(){
 

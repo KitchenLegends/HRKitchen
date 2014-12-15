@@ -1,3 +1,4 @@
+function clog(v){console.log(v);}
 var directiveMod = angular.module('app.directives', []);
 
 directiveMod
@@ -16,9 +17,13 @@ directiveMod
   //is the scope of what the directive is inside...
   //what scope is this parent connected to?
   //= allows us to have two way data binding
+
+
+  
   var link = function(scope, ele, attr){
     ele.find('button').on('click', function(){
-      console.log('inside ele.children@@@');
+      var htmlText = '<li><input type="text" placeholder="topic"/></li>';
+      ele.find('ul').append( angular.element(htmlText) )
     })
   };
   return {
@@ -31,21 +36,56 @@ directiveMod
 
 
 
+
 .directive('adminLists', function($compile){
   
   var link = function(scope, ele, attr){
-    var list = $compile('<list-box></list-box>')(scope);
+    //DONT use list... because it doesnt create a new list box each time...
+    //I think it just uses the same one
+    // var list = $compile('<list-box></list-box>')(scope);
+    // ele.find('button').on('click', function(){
+    //   //prevent from overwriting... bug fix
+    //   colog('created new LIST inside <admin-lists>');
+    //   ele.append(list);
+    // })
+    //this one is similar to the above one
+    ele.find('#createList').bind('click', function(){
+      ele.append($compile('<list-box></list-box>')(scope));
 
-    ele.find('button').on('click', function(){
-      //prevent from overwriting... bug fix
-      console.log('helllo');
-      ele.append(list);
+
+
     })
+
+
   };
   return{
     restrict:'EA',
     link:link,
+    replace:true,
     templateUrl:'./javascripts/angularUI/adminListsDirective.html',
     scope:{'adminCtrl':'='}
   };
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

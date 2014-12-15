@@ -5,30 +5,19 @@ var appControllers = angular.module('appControllers');
 
 appControllers.controller('adminCtrl', ['$scope',
   function($scope){
-
-
-    $scope.addTopic = function(){
-      clog("INSIDE ADD TOPIC");
+    $scope.lists = [];
+    $scope.addList = function(){
+      var newList = { topics:[] };
+      $scope.lists.push(newList)
     };
 
+    
 
-    //link function - inside of directive - all jquery functionality
-    //instead of using jquery, has an el tag
-    //create another directive that holds all the list items
-    $scope.formData = {};
+    
 
 
     
 
-    $scope.createListBox = function(){
-
-      // clog('inside create LIST');
-      var allLists = angular.element( document.querySelector( '#adminLists' ) );
-      var newList  = angular.element('<list-box></list-box>');
-
-      allLists.append(newList);
-    };
-    
 
     
   }]

@@ -1,4 +1,8 @@
 <div class="listBox">
-  <ul ng-model="topicList" class="list"></ul>
-  <button ng-click="addTopic()" class="glyphicon glyphicon-plus addTopic"></button>
+  <!-- useThisList button should only appear if there are topics in the list -->
+  <!-- also, if useThisList is pressed, only save topics with values in them -->
+  <button ng-click="useThisList(list)"> Use this list for kitchen</button>
+  <ul class="list"></ul>
+  <button ng-click="addTopic()"
+          class="glyphicon glyphicon-plus addTopic"> topic</button>
 </div>
