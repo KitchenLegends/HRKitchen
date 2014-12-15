@@ -13,9 +13,9 @@ directiveMod
   //or put things on the scope inside link
 
 
-//is the scope of what the directive is inside...
-//what scope is this parent connected to?
-//= allows us to have two way data binding
+  //is the scope of what the directive is inside...
+  //what scope is this parent connected to?
+  //= allows us to have two way data binding
   var link = function(scope, ele, attr){
     ele.find('button').on('click', function(){
       console.log('inside ele.children@@@');
