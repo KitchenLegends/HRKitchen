@@ -30,6 +30,8 @@
     <script src = "/javascripts/angularUI/chatCtrl.js"></script>
     <script src = "/javascripts/angularUI/adminCtrl.js"></script>
     <script src = "//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-cookies.js"></script>
+     <script src="./bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="./bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
 
   </head>
   <body >
