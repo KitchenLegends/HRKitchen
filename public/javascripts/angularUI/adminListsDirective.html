@@ -1,4 +1,7 @@
-<div class="adminLists">
-  <button ng-click="addList()" id="createList">Create new list</button>
-</div>
+<button ng-click="createList()" id="createList">Create new list</button>
 {{ lists }}
+<div ng-repeat="list in lists" id="adminLists">
+ {{ list }} 
+  <list-box ng-model="list.list"></list-box>
+  
+</div>

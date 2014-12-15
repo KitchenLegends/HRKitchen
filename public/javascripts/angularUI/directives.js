@@ -19,18 +19,16 @@ directiveMod
   //= allows us to have two way data binding
 
 
-  
+
   var link = function(scope, ele, attr){
-    ele.find('button').on('click', function(){
-      var htmlText = '<li><input type="text" placeholder="topic"/></li>';
-      ele.find('ul').append( angular.element(htmlText) )
-    })
+    
   };
   return {
     restrict:'EA',
     link: link,
-    templateUrl: './javascripts/angularUI/listboxDirective.html',
-    scope: {'adminCtrl':'='}
+    scope:true,
+    templateUrl: './javascripts/angularUI/listboxDirective.html'
+    // scope: {'adminCtrl':'='}
   };
 })
 
@@ -40,30 +38,19 @@ directiveMod
 .directive('adminLists', function($compile){
   
   var link = function(scope, ele, attr){
-    //DONT use list... because it doesnt create a new list box each time...
-    //I think it just uses the same one
-    // var list = $compile('<list-box></list-box>')(scope);
-    // ele.find('button').on('click', function(){
-    //   //prevent from overwriting... bug fix
-    //   colog('created new LIST inside <admin-lists>');
-    //   ele.append(list);
+    clog(scope)
+    // ele.find('#createList').bind('click', function(){
+
+
     // })
-    //this one is similar to the above one
-    ele.find('#createList').bind('click', function(){
-      ele.append($compile('<list-box></list-box>')(scope));
-
-
-
-    })
 
 
   };
   return{
     restrict:'EA',
     link:link,
-    replace:true,
-    templateUrl:'./javascripts/angularUI/adminListsDirective.html',
-    scope:{'adminCtrl':'='}
+    templateUrl:'./javascripts/angularUI/adminListsDirective.html'
+    // scope:{'adminCtrl':'='}
   };
 })
 

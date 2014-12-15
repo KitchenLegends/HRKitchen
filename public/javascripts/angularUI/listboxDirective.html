@@ -1,8 +1,20 @@
 <div class="listBox">
   <!-- useThisList button should only appear if there are topics in the list -->
   <!-- also, if useThisList is pressed, only save topics with values in them -->
-  <button ng-click="useThisList(list)"> Use this list for kitchen</button>
-  <ul class="list"></ul>
-  <button ng-click="addTopic()"
-          class="glyphicon glyphicon-plus addTopic"> topic</button>
+  <button ng-click="useThisList(list.list)"
+          class="useListBtn"> 
+          Use this list for kitchen</button>
+  <ul class="topics">
+    <li ng-repeat="topic in list.list"
+        class="topic">
+        <input ng-model="topic.topic"
+               type="text" />
+        <button class="glyphicon glyphicon-minus"
+                ng-click="removeTopic(topic, list.list)"></button>
+        </li></ul>
+  <br>
+  <br>
+  <button ng-click="addTopic(list.list)"
+          class="glyphicon glyphicon-plus addTopicBtn"> 
+          topic</button>
 </div>
