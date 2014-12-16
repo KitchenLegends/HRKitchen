@@ -1,7 +1,11 @@
-<button ng-click="createList()" id="createList">Create new list</button>
-{{ lists }}
-<div ng-repeat="list in lists" id="adminLists">
- {{ list }} 
-  <list-box ng-model="list.list"></list-box>
+<button ng-click="createList()"
+        class="glyphicon glyphicon-plus-sign"
+        id="createList">Create new list</button>
+<button ng-click="updateDb()"
+          class="glyphicon glyphicon-ok"> 
+          save</button>
+<div ng-repeat="list in lists"
+     id="adminLists">
+<list-box ng-model="list.list"></list-box>
   
 </div>

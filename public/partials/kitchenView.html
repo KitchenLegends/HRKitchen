@@ -2,10 +2,15 @@
 It was hastily hacked and needs refactoring to fix its currrent conditions. The non breaking white spaces are particularly tragic -->
 <div>
 
-    <div id="topic-box">
-      <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'valid'}" ng-model="list1" jqyoui-draggable="{animate:true}" ng-hide="!list1.title">{%list1.title%}</div>
-      <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'valid'}" ng-model="list3" jqyoui-draggable="{animate:true}" ng-hide="!list3.title">{%list3.title%}</div>
-    </div>
+    <div  id="topic-box">
+      <div ng-repeat="topic in topicsOfDay" 
+           class="btn btn-primary aTopic" 
+           data-drag="true" 
+           data-jqyoui-options="{revert: 'valid'}" 
+           ng-model="topic" 
+           jqyoui-draggable="{animate:true}" 
+           ng-hide="!topic">
+           {% topic.topic %}</div></div>
 
   <div>
   <!-- Kitchen tables and seats view -->

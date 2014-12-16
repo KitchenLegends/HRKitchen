@@ -7,8 +7,12 @@
   <ul class="topics">
     <li ng-repeat="topic in list.list"
         class="topic">
+        <div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="list2" jqyoui-droppable style='height:50px;'>
+  <div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="list2" jqyoui-draggable ng-hide="!list2.title">{{list2.title}}</div>
+</div>
         <input ng-model="topic.topic"
-               type="text" />
+               type="text"
+               style="width: 210px;" />
         <button class="glyphicon glyphicon-minus"
                 ng-click="removeTopic(topic, list.list)"></button>
         </li></ul>
@@ -17,4 +21,5 @@
   <button ng-click="addTopic(list.list)"
           class="glyphicon glyphicon-plus addTopicBtn"> 
           topic</button>
+  
 </div>

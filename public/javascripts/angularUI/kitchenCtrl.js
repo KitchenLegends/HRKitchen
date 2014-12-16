@@ -3,6 +3,7 @@
 window.userName = 'Loading';
 
 var fbHangouts = new Firebase('https://hrr-kitchen.firebaseio.com/hangouts')
+var fbTopicsOfDay  = new Firebase('https://hrkitchen.firebaseio.com/topicsOfDay');
 
 
 var appControllers = angular.module('appControllers', ['ngCookies', 'ngDragDrop']);
@@ -13,8 +14,17 @@ var appControllers = angular.module('appControllers', ['ngCookies', 'ngDragDrop'
 appControllers.controller('kitchenCtrl', ['$scope', '$cookies',
   function ($scope, $cookies) {
 
-    $scope.list1 = { title: 'TOPIC' };
-    $scope.list2 = {};
+    fbTopicsOfDay.on("value", function(data) {
+      // do some stuff once
+      $scope.$apply(function(){
+        $scope.topicsOfDay = data.val().list;
+        clog($scope.topicsOfDay.list);
+        console.log('TOPICSOFDAY', data.val());
+      });
+    });
+
+
+    $scope.list2 = {};  
     $scope.list3 = { title: 'TOPIC2' };
 
     $scope.logout = function(){

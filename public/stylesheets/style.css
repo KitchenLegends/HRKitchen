@@ -68,6 +68,25 @@ a {
   position: absolute;
   width: 100%;
 }
+.aTopic{
+  margin-bottom: 5px !important;
+}
+.listBox{
+  position:relative;
+  float:left;
+
+}
+li.topic{
+  
+  margin:5px;
+  margin-left:-40px;
+}
+
+.createList{
+  padding:5px;
+}
+
+
 
 /*
 .bootbox {
