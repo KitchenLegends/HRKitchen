@@ -4,12 +4,26 @@
   <button ng-click="useThisList(list.list)"
           class="useListBtn"> 
           Use this list for kitchen</button>
-  <ul class="topics">
+  <ul class="topics"
+      class="thumbnail" 
+      data-drop="true" 
+      data-jqyoui-options ng-model="list" 
+      jqyoui-droppable>
+
     <li ng-repeat="topic in list.list"
-        class="topic">
-        <div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="list2" jqyoui-droppable style='height:50px;'>
-  <div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="list2" jqyoui-draggable ng-hide="!list2.title">{{list2.title}}</div>
-</div>
+        class="topic"
+        class="btn btn-primary" 
+        data-drag="true" 
+        data-jqyoui-options="{revert: 'invalid'}" 
+        ng-model="topic" 
+        jqyoui-draggable="{animate:true}" 
+        ng-hide="!topic.topic">
+        <div class="btn btn-success" 
+             data-drag="false" 
+             data-jqyoui-options 
+             ng-model="topic" 
+             jqyoui-draggable 
+             ng-hide="!topic.title"></div>
         <input ng-model="topic.topic"
                type="text"
                style="width: 210px;" />

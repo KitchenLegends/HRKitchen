@@ -9,7 +9,7 @@ It was hastily hacked and needs refactoring to fix its currrent conditions. The 
            data-jqyoui-options="{revert: 'valid'}" 
            ng-model="topic" 
            jqyoui-draggable="{animate:true}" 
-           ng-hide="!topic">
+           ng-hide=" topic.topic === '' ">
            {% topic.topic %}</div></div>
 
   <div>
